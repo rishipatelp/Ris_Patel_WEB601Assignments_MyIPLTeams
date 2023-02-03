@@ -20,9 +20,17 @@ export class ContentList {
     }
 
     printIndex(index: number): string {
-        let readerFriendlyHtml = `<div><p>Title: ${this._items[index].title}</p>
+        if (index < 0 || index >= this._items.length) {
+            return '<p>Error: index out of range</p>';
+          }
+        let iplteams = `<div><p>Title: ${this._items[index].title}</p>
         <p>Description: ${this._items[index].description}</p><p>Creator: ${this._items[index].creator}</p></div>`;
-        
-        return readerFriendlyHtml;
+        if (this._items[index].imgURL) {
+            iplteams += `<img src='${this._items[index].imgURL}' alt='${this._items[index].type}'>`;
+          }
+          if (this._items[index].type) {
+            iplteams += `<p>Type: ${this._items[index].type}</p>`;
+          }
+        return iplteams;
     }
 }
