@@ -4,8 +4,8 @@
 }
 
 :host{
-        display: flex;
-        flex-direction: column;
+        display: block;
+        //flex-direction: column;
         float: left;
         width: 450px;
         height: 30%;
@@ -15,20 +15,29 @@
          padding: 8px;
     
         &.is-even {
-            background-color: rgb(206, 114, 114);
+            background-color: rgb(135, 135, 135);
           }
         &.is-odd{
-             background-color: rgb(114, 114, 114);
+             background-color: white;
          }
+        &.Anime{
+            background-color: #000;
+            color: blue;
+        }
+        &.Manga{
+            background-color: #000;
+            color: red;
+        } 
     
      img{
-        width: 23em;
+        width: 25em;
+        width: auto;
         height: 350px;
         border: 5px solid black;
-        background-color: white;
     }
     p{
         padding: 15px;
+        //text-align: justify;
     }
      .type{
          padding: 13px;
@@ -38,11 +47,11 @@
      .author{
         padding: 12px;
         color: white;
-        background-color: rgb(48, 218, 32);
+        background-color: goldenrod;
      }
      .tags{
         padding: 10px;
         color: white;
-        background-color: rgb(177, 128, 65);
+        background-color: cadetblue;
      }
 }

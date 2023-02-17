@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Optional } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
+import { TmplAstBoundText } from '@angular/compiler';
+import { FliterPipe } from '../fliter.pipe';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-content-list',
@@ -9,9 +12,8 @@ import { Content } from '../helper-files/content-interface';
 export class ContentListComponent implements OnInit {
   
   content: Content[];
-  
+  public inputvalue?: Optional;
   constructor() {
-
   this.content = [{
     id: 0,
     title: 'Chennai Super Kings',
@@ -56,9 +58,40 @@ export class ContentListComponent implements OnInit {
     imgURL: 'https://upload.wikimedia.org/wikipedia/en/thumb/4/4c/Kolkata_Knight_Riders_Logo.svg/800px-Kolkata_Knight_Riders_Logo.svg.png',
     tags: ['Cricket Team'],
     type: 'Knight Riders'
-  },
+  }
 ]
+this.inputvalue ="";
 }
     ngOnInit(): void {
+  }
+  clickEvent(): any {
+    // let i = 0;
+    //  return  console.log(inputvalue); 
+    //console.log(this.content);
+    for(let i = 0;  i < this.content.length; i++) {
+     console.log(this.content[i].type);
+      // console.log(author.author)
+      // console.log('inputvalue', inputvalue);
+      //if(this.content[i].type == inputvalue){
+     let abj =  <HTMLInputElement>document.getElementById('aut');   
+     console.log(abj.value);
+     if(this.content[i].type == abj.value){
+       //return 'we found the item with other';
+       let out= <HTMLInputElement>document.getElementById('msg');
+        out.innerHTML = 'we found the item with other';
+      }
+      //   else{
+      //  let abj =  <HTMLInputElement>document.getElementById('aut');
+
+      //        abj.innerHTML = 'we can not find the other';
+      //   }
+    
+
+    }
+    let abj =  <HTMLInputElement>document.getElementById('aut');
+    if(!abj.innerHTML){
+             abj.innerHTML = 'we can not find the other';
+
+    }
   }
 }
