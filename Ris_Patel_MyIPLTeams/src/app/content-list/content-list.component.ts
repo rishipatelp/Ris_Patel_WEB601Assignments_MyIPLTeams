@@ -55,9 +55,27 @@ export class ContentListComponent implements OnInit {
     title: 'Kolkata Knight Riders',
     description: 'Kolkata Knight Riders (KKR) are a franchise cricket team representing the city of Kolkata in the Indian Premier League.',
     creator: 'SRK',
-    imgURL: 'https://upload.wikimedia.org/wikipedia/en/thumb/4/4c/Kolkata_Knight_Riders_Logo.svg/800px-Kolkata_Knight_Riders_Logo.svg.png',
+    //imgURL: 'https://upload.wikimedia.org/wikipedia/en/thumb/4/4c/Kolkata_Knight_Riders_Logo.svg/800px-Kolkata_Knight_Riders_Logo.svg.png',
     tags: ['Cricket Team'],
     type: 'Knight Riders'
+  },
+  {
+    id: 5,
+    title: 'Sunrisers Hyderabad',
+    description: 'Sunrisers Hyderabad are a franchise cricket team based in Hyderabad, Telangana, India, that plays in the Indian Premier League. The franchise is owned by Kalanithi Maran of the SUN Group and was founded in 2012 after the Hyderabad-based Deccan Chargers were terminated by the IPL.',
+    creator: 'Kalanithi Maran',
+    imgURL: 'https://upload.wikimedia.org/wikipedia/en/e/eb/Sunrisers_Hyderabad.png',
+    tags: ['Cricket Team'],
+    type: 'SRH'
+  },
+  {
+    id: 6,
+    title: 'Lucknow Super Giants',
+    description: 'Lucknow Super Giants is a franchise cricket team based in Lucknow, Uttar Pradesh. They play in the Indian Premier League. The Lucknow franchise formed in 2021. Sanjeev Goenka is its principal owner. The team is captained by KL Rahul and coached by Andy Flower. ',
+    creator: 'RPSG Group',
+    imgURL: 'https://upload.wikimedia.org/wikipedia/en/e/e2/Lucknow_Super_Giants_logo.png',
+    tags: ['Cricket Team'],
+    type: 'LSG'
   }
 ]
 this.inputvalue ="";
@@ -65,33 +83,15 @@ this.inputvalue ="";
     ngOnInit(): void {
   }
   clickEvent(): any {
-    // let i = 0;
-    //  return  console.log(inputvalue); 
-    //console.log(this.content);
+  
     for(let i = 0;  i < this.content.length; i++) {
      console.log(this.content[i].type);
-      // console.log(author.author)
-      // console.log('inputvalue', inputvalue);
-      //if(this.content[i].type == inputvalue){
      let abj =  <HTMLInputElement>document.getElementById('aut');   
      console.log(abj.value);
-     if(this.content[i].type == abj.value){
-       //return 'we found the item with other';
+     if(this.content[i].type === abj.value){
        let out= <HTMLInputElement>document.getElementById('msg');
         out.innerHTML = 'we found the item with other';
       }
-      //   else{
-      //  let abj =  <HTMLInputElement>document.getElementById('aut');
-
-      //        abj.innerHTML = 'we can not find the other';
-      //   }
-    
-
-    }
-    let abj =  <HTMLInputElement>document.getElementById('aut');
-    if(!abj.innerHTML){
-             abj.innerHTML = 'we can not find the other';
-
     }
   }
 }

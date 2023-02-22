@@ -4,9 +4,6 @@
 <button (click)="clickEvent()">Click me!</button>
 <div class="aut" id="msg"></div> 
 
-<!-- <div>
-    <app-content-card *ngFor="let content of content; index as i; first as idFirst; odd as odd; even as even;" [content]="content" class="chess-player-{{i}} border" [class.is-odd]="odd" [class.is-even]="even"></app-content-card>
-</div> -->
 
 <div *ngFor="let content of (content | fliter); index as i; first as isFirst; odd as odd; even as even;" >
 
@@ -16,6 +13,11 @@
 <div *ngFor="let content of (content | fliter); index as i; first as isFirst; odd as odd; even as even;" >
 
     <app-content-card  *ngIf="content.type=='Indians'" [content]="content" class="chess-player-{{i}} border" class="MI"></app-content-card>
+</div>
+
+<div *ngFor="let content of (content | fliter); index as i; first as isFirst; odd as odd; even as even;" >
+
+    <app-content-card  *ngIf="content.type=='Action'" [content]="content" class="chess-player-{{i}} border" class="KKR"></app-content-card>
 </div>
 
 <div *ngFor="let content of (content | fliter); index as i; first as isFirst; odd as odd; even as even;" >
