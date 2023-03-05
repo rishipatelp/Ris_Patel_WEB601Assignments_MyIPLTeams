@@ -3,6 +3,7 @@ import { Content } from '../helper-files/content-interface';
 import { TmplAstBoundText } from '@angular/compiler';
 import { FliterPipe } from '../fliter.pipe';
 import { FormsModule } from '@angular/forms';
+import { CreateContentComponent } from '../create-content/create-content.component';
 
 @Component({
   selector: 'app-content-list',
@@ -93,5 +94,51 @@ this.inputvalue ="";
         out.innerHTML = 'we found the item with other';
       }
     }
+  }
+  filteredContents: Content[] = [];
+  filterText: string;
+  errorMessage: string;
+
+  onContentCreated(content: Content) {
+    this.addContent(content)
+      .then(() => {
+        console.log(`Successfully added ${content.title}.`);
+        this.errorMessage = '';
+      })
+      .catch(() => {
+        console.error(`Failed to add ${content.title}.`);
+        this.errorMessage = 'Failed to add content.';
+      });
+  }
+
+  addContent(content: Content): Promise<void> {
+    return new Promise((resolve, reject) => {
+      const requiredFields = ['id', 'title', 'description', 'creator'];
+      const missingFields = requiredFields.filter(type => !content[type]);
+      if (missingFields.length > 0) {
+        reject();
+        this.errorMessage = `Please fill in the required fields: ${missingFields.join(', ')}.`;
+        return;
+      }
+      const existingContent = this.content.find(c => c.id === content.id);
+      if (existingContent) {
+        reject();
+        this.errorMessage = `Content with ID ${content.id} already exists.`;
+        return;
+      }
+      const clonedContent = { ...content };
+      this.content.push(clonedContent);
+      this.filterContents();
+      resolve();
+    });
+  }
+
+  filterContents() {
+    this.filteredContents = this.content.filter(content => {
+      const filterText = this.filterText ? this.filterText.toLowerCase() : '';
+      const contentTitle = content.title.toLowerCase();
+      const contentDescription = content.description.toLowerCase();
+      return contentTitle.includes(filterText) || contentDescription.includes(filterText);
+    });
   }
 }
