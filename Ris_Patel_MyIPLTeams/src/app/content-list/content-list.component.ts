@@ -1,17 +1,17 @@
 import { Component, OnInit, Optional } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
-import { TmplAstBoundText } from '@angular/compiler';
-import { FliterPipe } from '../fliter.pipe';
-import { FormsModule } from '@angular/forms';
-
+import { content } from '../helper-files/contenDb';
+import { AnimeService } from '../anime.service';
+import { MessageService } from '../message.service';
 @Component({
   selector: 'app-content-list',
   templateUrl: './content-list.component.html',
   styleUrls: ['./content-list.component.scss']
 })
+
 export class ContentListComponent implements OnInit {
   
-  content: Content[];
+  content: any[];
   public inputvalue?: Optional;
   constructor() {
   this.content = [{
