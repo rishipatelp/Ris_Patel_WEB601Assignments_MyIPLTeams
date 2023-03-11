@@ -1,8 +1,22 @@
 <!-- <p>content-list works!</p> -->
+<br>
+<br>
+<br>
+<br>
 
-<input ngModel for="inputvalue?" id="aut"/>
-<button (click)="clickEvent()">Click me!</button>
-<div class="aut" id="msg"></div> 
+<form #contentForm="ngForm" class="content-form">
+    <label for="contentId">Enter content ID:</label>
+    <input type="number" id="contentId" name="contentId" required [(ngModel)]="contentId">
+    <button type="button" (click)="getContent()">Get Content</button>
+  </form>
+<app-messages></app-messages>
+
+<div class="card shadow-card">
+    <app-content-card [content]="content[2]" class="card shadow-card" >
+
+        
+    </app-content-card>
+</div>
 
 
 <div *ngFor="let content of (content | fliter); index as i; first as isFirst; odd as odd; even as even;" >

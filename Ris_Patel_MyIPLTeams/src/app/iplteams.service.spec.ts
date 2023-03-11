@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { IplteamsService } from './iplteams.service';
+import { IPLTeamsService } from './iplteams.service';
 
 describe('IplteamsService', () => {
-  let service: IplteamsService;
+  let service: IPLTeamsService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(IplteamsService);
+    service = TestBed.inject(IPLTeamsService);
   });
 
   it('should be created', () => {
