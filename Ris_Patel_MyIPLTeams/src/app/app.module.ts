@@ -13,6 +13,9 @@ import { ModifyContentComponent } from './modify-content/modify-content.componen
 import { InMemoryDataService } from './services/in-memory-data.service';
 import { IPLTeamsService } from './iplteams.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { AddContentDialogComponentComponent } from './add-content-dialog-component/add-content-dialog-component.component';
 
 @NgModule({
   declarations: [
@@ -22,14 +25,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FliterPipe,
     HoverAffectDirective,
     MessagesComponent,
-    ModifyContentComponent
+    ModifyContentComponent,
+    AddContentDialogComponentComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatInputModule
   ],
   providers: [IPLTeamsService],
   bootstrap: [AppComponent]

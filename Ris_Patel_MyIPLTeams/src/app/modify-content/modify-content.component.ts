@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
 import { IPLTeamsService } from '../iplteams.service';
 import { MessageService } from '../message.service';
+import { MatDialog } from "@angular/material/dialog";
 
 @Component({
   selector: 'app-modify-content',
@@ -17,7 +18,20 @@ export class ModifyContentComponent {
 
   @Output() contentAdded = new EventEmitter<Content>();
 
-  constructor(private contentService: IPLTeamsService, private messageService: MessageService) { }
+  constructor(private contentService: IPLTeamsService, private messageService: MessageService, private dialog: MatDialog) { }
+
+  openAddContentDialog(): void {
+    const dialogRef = this.dialog.open(AddContentDialogComponent, {
+      width: '400px',
+      data: {}
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.addContent(result);
+      }
+    });
+  }
 
   addContent(newContent: Content) {
     this.contentService.addContent(newContent)
