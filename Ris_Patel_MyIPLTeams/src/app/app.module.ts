@@ -12,6 +12,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { ModifyContentComponent } from './modify-content/modify-content.component';
 import { InMemoryDataService } from './services/in-memory-data.service';
 import { IPLTeamsService } from './iplteams.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { IPLTeamsService } from './iplteams.service';
     BrowserModule,
     HttpClientModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [IPLTeamsService],
   bootstrap: [AppComponent]
