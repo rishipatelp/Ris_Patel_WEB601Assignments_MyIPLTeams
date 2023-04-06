@@ -15,7 +15,8 @@ import { IPLTeamsService } from './iplteams.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-import { AddContentDialogComponentComponent } from './add-content-dialog-component/add-content-dialog-component.component';
+import { AddContentDialogComponent } from './add-content-dialog/add-content-dialog.component';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { AddContentDialogComponentComponent } from './add-content-dialog-compone
     HoverAffectDirective,
     MessagesComponent,
     ModifyContentComponent,
-    AddContentDialogComponentComponent
+    AddContentDialogComponent
   ],
   imports: [
     BrowserModule,

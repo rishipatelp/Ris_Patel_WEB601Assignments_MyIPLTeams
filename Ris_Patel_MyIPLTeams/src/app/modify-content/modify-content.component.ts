@@ -3,6 +3,7 @@ import { Content } from '../helper-files/content-interface';
 import { IPLTeamsService } from '../iplteams.service';
 import { MessageService } from '../message.service';
 import { MatDialog } from "@angular/material/dialog";
+import { AddContentDialogComponent } from "../add-content-dialog/add-content-dialog.component";
 
 @Component({
   selector: 'app-modify-content',
