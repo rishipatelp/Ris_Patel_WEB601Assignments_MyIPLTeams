@@ -1,6 +1,6 @@
 {
   "name": "ris-patel-my-iplteams",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -9,7 +9,8 @@
     "test": "ng test",
     "generateComponent": "ng generate component",
     "generatedirective": "ng generate directive",
-    "generatepipe": "ng generate pipe"
+    "generatepipe": "ng generate pipe",
+    "installtheme": "ng add @angular/material"
   },
   "private": true,
   "dependencies": {
