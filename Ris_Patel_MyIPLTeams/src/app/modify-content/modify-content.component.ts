@@ -21,16 +21,15 @@ export class ModifyContentComponent {
 
   constructor(private contentService: IPLTeamsService, private messageService: MessageService, private dialog: MatDialog) { }
 
-  openAddContentDialog(): void {
+  openDialog(): void {
     const dialogRef = this.dialog.open(AddContentDialogComponent, {
       width: '400px',
       data: {}
     });
   
     dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.addContent(result);
-      }
+      console.log('The dialog was closed');
+      console.log(result);
     });
   }
 
