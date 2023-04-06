@@ -5,8 +5,13 @@ import { AppComponent } from './app.component';
 import { ContentCardComponent } from './content-card/content-card.component';
 import { ContentListComponent } from './content-list/content-list.component';
 import { FliterPipe } from './fliter.pipe';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule, InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { HoverAffectDirective } from './hover-affect.directive';
 import { MessagesComponent } from './messages/messages.component';
+import { ModifyContentComponent } from './modify-content/modify-content.component';
+import { InMemoryDataService } from './services/in-memory-data.service';
+import { IPLTeamsService } from './iplteams.service';
 
 @NgModule({
   declarations: [
@@ -15,13 +20,16 @@ import { MessagesComponent } from './messages/messages.component';
     ContentListComponent,
     FliterPipe,
     HoverAffectDirective,
-    MessagesComponent
+    MessagesComponent,
+    ModifyContentComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    InMemoryWebApiModule.forRoot(InMemoryDataService),
     FormsModule
   ],
-  providers: [],
+  providers: [IPLTeamsServices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
