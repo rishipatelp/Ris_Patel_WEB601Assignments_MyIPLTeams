@@ -29,7 +29,7 @@ import { IPLTeamsService } from './iplteams.service';
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     FormsModule
   ],
-  providers: [IPLTeamsServices],
+  providers: [IPLTeamsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
