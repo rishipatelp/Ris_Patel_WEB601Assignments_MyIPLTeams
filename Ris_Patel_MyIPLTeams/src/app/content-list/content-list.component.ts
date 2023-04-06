@@ -60,6 +60,11 @@ this.inputvalue ="";
       this.content = [];
     }
   }
+
+  onContentAdded(content: Content) {
+    this.content.push(content);
+ }
+
   // clickEvent(): any {
   
   //   for(let i = 0;  i < this.content.length; i++) {
