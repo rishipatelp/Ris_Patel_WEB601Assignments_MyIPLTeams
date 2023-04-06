@@ -7,5 +7,5 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./add-content-dialog.component.scss']
 })
 export class AddContentDialogComponent {
-
+  dialogTitle = "Add IPLTeamsTypes";
 }
