@@ -40,6 +40,11 @@
 
     <app-content-card  *ngIf="!content.type" [content]="content" class="chess-player-{{i}} border" [class.is-odd]="odd" [class.is-even]="even"></app-content-card>
 </div>
- 
+
+<div *ngFor="let contentItem of content">
+    <app-content-card [content]="contentItem"></app-content-card>
+    <a [routerLink]="['/detail', contentItem.id]">View Details</a>
+</div>
+  
 
 
